@@ -85,7 +85,7 @@ def fpdiff_helper(filename1,filename2,relative_error,small,
   if file_length == 0:
    details_stream.write(f"\nWarning: file {filename} is empty and the test will therefore be treated as a fail.")
    outstream.write("\n\n   [FAILED]\n")
-   return 1
+   return 1, None, None
 
  #Find the number of lines in each file
  n1 = len(tmpfile1)
