@@ -135,6 +135,9 @@ make_check_output
 aclocal.m4
 autogen_fresh.dat
 build/
+build-release/
+build-debug/
+build-mpi/
 autom4te.cache/*
 autom4te.cache/
 configure.scan
