@@ -121,6 +121,9 @@ make_check_output
 aclocal.m4
 autogen_fresh.dat
 build/
+build-release/
+build-debug/
+build-mpi/
 autom4te.cache/*
 autom4te.cache/
 configure.scan
@@ -144,6 +147,9 @@ doc/the_distribution/joe_cool_makefile.am
 doc/the_distribution/linked_make_file.am
 compile
 src/generic/mumps_module.mod
+
+# Installation
+**/install/
 
 # Some binaries/scripts that are generated
 external_distributions/hypre/build_script.bash
