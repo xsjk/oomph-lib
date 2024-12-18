@@ -274,6 +274,11 @@ include(OomphLocateOptionalThirdPartyLibs)
 oomph_add_c_compile_definitions(${EXTERNAL_DIST_CXX_DEFINITIONS})
 oomph_add_cxx_compile_definitions(${EXTERNAL_DIST_CXX_DEFINITIONS})
 
+# Get the compile definitions
+get_directory_property(
+  OOMPH_COMPILE_DEFINITIONS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                                      COMPILE_DEFINITIONS)
+
 # Configure all of the main oomph-lib library sources
 add_subdirectory(src)
 

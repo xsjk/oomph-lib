@@ -3,7 +3,7 @@
     <img alt="reviewdog" src="./doc/figures/oomph_logo.png">
   </a>
 </div>
- 
+
 <div align="center">
   <a href="./LICENCE">
     <img alt="License: LGPL v2.1" src="https://img.shields.io/badge/License-LGPL%20v2.1-blue.svg">
@@ -1117,10 +1117,10 @@ cd $oomph_home_dir<br>
 <pre>
 # Go to home directory
 cd $oomph_home_dir<br>
-# Run manual config/build/install 
+# Run manual config/build/install
 # sequence
 ./configure hierher check this
-make 
+make
 make install
 </pre>
 </td>
@@ -1206,12 +1206,12 @@ cd $oomph_home_dir/demo_driver/one_d_poisson<br>
 make check<br>
 # Edit
 emacs one_d_poisson.cc<br>
-# Run again (make realises that 
+# Run again (make realises that
 # code needs to be recompiled)
 make check<br>
 # Keep going until it works...
 # (of course you may do the
-# compilation/rerun in your 
+# compilation/rerun in your
 # editor/IDE; see below)
 </pre>
 </td>
@@ -1221,28 +1221,28 @@ make check<br>
 cd $oomph_home_dir/demo_driver/one_d_poisson<br>
 # Configure (note that switching on the
 # debug build only helps if the library
-# itself was compiled with that option too; 
-#  by default it is built in Release mode 
+# itself was compiled with that option too;
+#  by default it is built in Release mode
 # with full optimisation)
 cmake -G Ninja -B build -DCMAKE_BUILD_TYPE=Debug<br>
 # Run the test (note that the executable
 # got built in the build directory!)
 cd build
 ctest<br>
-# Edit source code 
+# Edit source code
 emacs ../one_d_poisson.cc<br>
 # Rebuild executable(s)
 ninja <br>
 # ...or just rebuild a specific one
 ninja one_d_poisson<br>
-# If you want to see compiler errors 
+# If you want to see compiler errors
 # in detail do
 ninja --verbose one_d_poisson<br>
 # Now rerun the test
 ctest<br>
 # Keep going until it works...
 # (of course you may do the
-# compilation/rerun in your 
+# compilation/rerun in your
 # editor/IDE; see below)
 </pre>
 </td>
@@ -1264,20 +1264,20 @@ cd $oomph_home_dir/src/poisson<br>
 emacs poisson_elements.h <br>
 # Recompile the library
 make <br>
-# You may go through this repeatedly 
-# until the code compiles... 
+# You may go through this repeatedly
+# until the code compiles...
 <br>
 # EMACS/IDE ASIDE: If you
 # do this in emacs where you can trigger
-# the compilation with [F4] (or some 
-# other user-defined key) the command to 
-# be spawned is "make" which emacs enters 
-# by default (you can edit this); if the 
-# compilation fails, emacs allows 
+# the compilation with [F4] (or some
+# other user-defined key) the command to
+# be spawned is "make" which emacs enters
+# by default (you can edit this); if the
+# compilation fails, emacs allows
 # you to jump to the source line where
-# the compilation error occurs 
-# using [F12] (on my setup; you can 
-# customise this), so the typical 
+# the compilation error occurs
+# using [F12] (on my setup; you can
+# customise this), so the typical
 # sequence is
 # - edit code
 # - save
@@ -1289,11 +1289,11 @@ make <br>
 # - save
 # - [F4] (spawns "make")
 # - [RETURN]
-# etc. 
+# etc.
 <br>
 # Install the library
 make install<br>
-# If the change also affects other 
+# If the change also affects other
 # dependent libraries (e.g. if you
 # edited something in src/generic
 # or a library that is used by others,
@@ -1317,30 +1317,30 @@ emacs poisson_elements.h <br>
 # recompiled)
 cd $oomph_home_dir
 cmake --build build <br><br>
-# You may go through this repeatedly 
+# You may go through this repeatedly
 # until the code compiles...
 <br>
 # EMACS/IDE ASIDE: If you If you
 # do this in emacs where you can trigger
-# the compilation with [F4] (or some 
+# the compilation with [F4] (or some
 # other user-defined key), emacs
-# provides the default command "make". 
-# Edit this to 
+# provides the default command "make".
+# Edit this to
 #
 #   cd $oomph_home_dir; cmake --build build
 #
-# then hit return. If the 
-# compilation fails, emacs allows 
+# then hit return. If the
+# compilation fails, emacs allows
 # you to jump to the source line where
-# the compilation error occurs 
-# using [F12] (on my setup; you can 
-# customise this), so the typical 
+# the compilation error occurs
+# using [F12] (on my setup; you can
+# customise this), so the typical
 # sequence is
 # - edit code
 # - save
-# - [F4] (spawns "make") 
-# - change make to 
-# 
+# - [F4] (spawns "make")
+# - change make to
+#
 #     cd $oomph_home_dir; cmake --build build
 #
 # - [RETURN]
@@ -1351,7 +1351,7 @@ cmake --build build <br><br>
 # - [F4] (emacs now remembers the previous
 #         command)
 # - [RETURN]
-# etc. 
+# etc.
 <br>
 # Install the library
 cd $oomph_home_dir
@@ -1444,13 +1444,12 @@ oomph_add_executable(
   CXX_DEFINITIONS REFINEABLE)
 ```
 
-If you are comfortable with CMake and feel the `oomph_add_executable()` command does not provide the flexibility that you require, you may wish to specify your own executable using the standard CMake functions. If so, you will need to make sure that you add the compile definitions in `OOMPH_COMPILE_DEFINITIONS` to the target, e.g.
+If you are comfortable with CMake and feel the `oomph_add_executable()` command does not provide the flexibility that you require, you may wish to specify your own executable using the standard CMake functions. e.g.
 
 ```cmake
 add_executable(<target-name> <source-1> ... <source-N>)
 target_compile_features(<target-name> INTERFACE cxx_std_17)
 target_link_libraries(<target-name> PRIVATE oomph::poisson)
-target_compile_definitions(<target-name> ${OOMPH_COMPILE_DEFINITIONS})
 ```
 
 where `<target-name>` is the name of your executable. This imports the compile

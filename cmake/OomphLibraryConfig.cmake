@@ -163,6 +163,10 @@ function(oomph_library_config)
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../>
     $<INSTALL_INTERFACE:${OOMPH_INSTALL_INCLUDE_DIR}>)
 
+  # Add the compile definitions to the library
+  target_compile_definitions(${LIBNAME} ${INCLUDE_TYPE}
+                             ${OOMPH_COMPILE_DEFINITIONS})
+
   # Add the location of oomph-lib-config.h header if required
   if(OOMPH_ADD_CONFIG_H)
     target_include_directories(${LIBNAME} ${INCLUDE_TYPE}

@@ -10,11 +10,6 @@
 # Define additional variables required by the oomphlibConfig.cmake.in file here
 include_guard()
 
-# Get the compile definitions
-get_directory_property(
-  OOMPH_COMPILE_DEFINITIONS DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-                                      COMPILE_DEFINITIONS)
-
 # -----------------------------------------------------------------------------
 
 # Introduce the functions write_basic_package_version_file(...) and
