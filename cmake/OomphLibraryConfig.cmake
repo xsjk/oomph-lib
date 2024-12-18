@@ -186,6 +186,10 @@ function(oomph_library_config)
     target_link_options(${LIBNAME} ${LINK_TYPE} -Wl,-no_compact_unwind)
   endif()
 
+  if(BUILD_SHARED_LIBS)
+    set_target_properties(${LIBNAME} PROPERTIES INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${OOMPH_INSTALL_LIB_DIR}")
+  endif()
+
   # ----------------------------------------------------------------------------
   # The install rules: we want to do the following
   #

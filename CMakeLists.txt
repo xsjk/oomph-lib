@@ -174,6 +174,7 @@ endif()
 # Let CMake take care of the famous -fPIC flag
 if(BUILD_SHARED_LIBS)
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+  set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 endif()
 
 # The user needs to provide at least v0.3.25 of OpenBLAS
